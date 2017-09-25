@@ -20,7 +20,7 @@ public class SociUM {
     private int anoCurso;                   //2
     private int anoPresente;                //2017
     private String morada;                  //rua da misericórdia
-    private ArrayList<Quota> cotas;                 //<data,valor pago>, ordenado por data
+    private ArrayList<Quota> quotas;                 //<data,valor pago>, ordenado por data
    
     //CONSTRUTORES
     public SociUM(){
@@ -30,7 +30,7 @@ public class SociUM {
         this.anoCurso = 0;
         this.anoPresente = 0;
         this.morada = "";
-        this.cotas = new ArrayList<>();
+        this.quotas = new ArrayList<>();
     }
     
     public SociUM(String nmr, String name, String curs, int anoC, int ano, String morad, ArrayList<Quota> cot){
@@ -40,10 +40,19 @@ public class SociUM {
         this.anoCurso = anoC;
         this.anoPresente = ano;
         this.morada = morad;
-        this.cotas = new ArrayList<>();
+        this.quotas = new ArrayList<>();
         for( Quota q : cot  )
-           cotas.add(q.clone());
-            
+           quotas.add(q.clone());   
+    }
+    
+    public SociUM(String nmr, String name, String curs, int anoC, int ano, String morad){
+        this.numero = nmr;
+        this.nome = name;
+        this.curso = curs;
+        this.anoCurso = anoC;
+        this.anoPresente = ano;
+        this.morada = morad;
+        this.quotas = new ArrayList<>();  
     }
     
     public SociUM(SociUM s){
@@ -53,12 +62,11 @@ public class SociUM {
         this.anoCurso = s.getAnoCurso();
         this.anoPresente = s.getAnoPresente();
         this.morada = s.getMorada();
-        this.cotas = new ArrayList<>();
+        this.quotas = new ArrayList<>();
         for( Quota q : s.getQuotas() )
-            cotas.add(q.clone());
+            quotas.add(q.clone());
     }
-    
-    
+
     //METODOS DE INSTANCIA
     //GETTERS
     public String getNumero(){ return this.numero; }
@@ -73,13 +81,12 @@ public class SociUM {
     
     public String getMorada(){ return this.morada; }
     
-    //devolve todas as cotas de um sócio
+    //devolve todas as quotas de um sócio
     public ArrayList<Quota> getQuotas(){
         ArrayList<Quota> ret = new ArrayList<Quota>();
-        for( Quota q : this.cotas){ ret.add(q.clone()); }
+        for( Quota q : this.quotas){ ret.add(q.clone()); }
         return ret;
     }
-    
     
     //SETTERS
     public void setNumero(String nmr){ this.numero = nmr; }
@@ -94,20 +101,17 @@ public class SociUM {
     
     public void setMorada(String morad){ this.morada = morad; }
     
-    
     //n deve ser preciso este método, mas wtv
-    //adiciona cotas a um aluno, passadas como parâmetro 
+    //adiciona quotas a um aluno, passadas como parâmetro 
     public void addQuotas(ArrayList<Quota> cot){
-        for( Quota q : cot ){ this.cotas.add(q.clone()); }
+        for( Quota q : cot ){ this.quotas.add(q.clone()); }
     }
- 
     
     //adiciona UMA cota, usar este método
     public void addQuota(Quota q){
-        this.cotas.add(q.clone());
+        this.quotas.add(q.clone());
     } 
-    
-    
+   
     public boolean equals(Object o){
         if( this == o ) return true;
         if( o==null || o.getClass() != this.getClass() ) return false;
@@ -118,15 +122,13 @@ public class SociUM {
                  this.anoCurso == q.getAnoCurso() &&
                  this.anoPresente == q.getAnoPresente() &&
                  this.morada.equals(q.getMorada()) &&
-                 this.cotas.equals(q.getQuotas())
+                 this.quotas.equals(q.getQuotas())
                );
-        
     }
-    
     
     public String toString(){
         StringBuilder s = new StringBuilder();
-        s.append("----------SOCIO----------");
+        s.append("----------SOCIO----------\n");
         s.append("NUMERO: " +this.numero+ "\n");
         s.append("NOME: " +this.nome+ "\n");
         s.append("CURSO: " +this.curso+ "\n");
@@ -134,7 +136,7 @@ public class SociUM {
         s.append("ANO PRESENTE: " +this.anoPresente+ "\n");
         s.append("MORADA: " +this.morada+ "\n");
         s.append("COTAS: \n");
-        for(Quota q : this.cotas)
+        for(Quota q : this.quotas)
             s.append(q.toString());
         s.append("-------------------------\n");
         
@@ -142,11 +144,7 @@ public class SociUM {
         return s.toString();
     }
     
-    
     public SociUM clone(){
         return new SociUM(this);
     }
-    
-    
-   
 }
