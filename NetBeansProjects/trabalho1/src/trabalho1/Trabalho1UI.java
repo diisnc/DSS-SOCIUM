@@ -27,7 +27,31 @@ public class Trabalho1UI extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        jMenuBar1 = new javax.swing.JMenuBar();
+        menuFile = new javax.swing.JMenu();
+        menuNew = new javax.swing.JMenu();
+        newMember = new javax.swing.JMenuItem();
+
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setTitle("SociUM");
+
+        menuFile.setText("Ficheiro");
+
+        menuNew.setText("Novo");
+
+        newMember.setText("Membro");
+        newMember.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                newMemberActionPerformed(evt);
+            }
+        });
+        menuNew.add(newMember);
+
+        menuFile.add(menuNew);
+
+        jMenuBar1.add(menuFile);
+
+        setJMenuBar(jMenuBar1);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -37,11 +61,19 @@ public class Trabalho1UI extends javax.swing.JFrame {
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 300, Short.MAX_VALUE)
+            .addGap(0, 279, Short.MAX_VALUE)
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void newMemberActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_newMemberActionPerformed
+        
+        // Abrir diálogo de inserção membrária
+        InsertMemberUI insertDialog = new InsertMemberUI(Trabalho1UI.this, true);
+        
+        insertDialog.setVisible(true);
+    }//GEN-LAST:event_newMemberActionPerformed
 
     /**
      * @param args the command line arguments
@@ -80,5 +112,9 @@ public class Trabalho1UI extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JMenuBar jMenuBar1;
+    private javax.swing.JMenu menuFile;
+    private javax.swing.JMenu menuNew;
+    private javax.swing.JMenuItem newMember;
     // End of variables declaration//GEN-END:variables
 }

@@ -28,6 +28,9 @@ public class InsertMemberUI extends javax.swing.JDialog {
     private void initComponents() {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
+        setTitle("Inserir Membro");
+        setModal(true);
+        setName("insertMember"); // NOI18N
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
