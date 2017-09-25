@@ -5,11 +5,11 @@
  */
 package trabalho1;
 
-/**
- *
- * @author marco
- */
-public class Trabalho1UI extends javax.swing.JFrame {
+import java.util.HashMap;
+import java.util.Observer;
+import java.util.Observable;
+
+public class Trabalho1UI extends javax.swing.JFrame implements Observer {
 
     /**
      * Creates new form trabalho1UI
@@ -75,10 +75,7 @@ public class Trabalho1UI extends javax.swing.JFrame {
         insertDialog.setVisible(true);
     }//GEN-LAST:event_newMemberActionPerformed
 
-    /**
-     * @param args the command line arguments
-     */
-    public static void showUI() {
+    public static void showUI(HashMap<String, SociUM> members) {
         /* Set the Nimbus look and feel */
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
         /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
@@ -109,6 +106,10 @@ public class Trabalho1UI extends javax.swing.JFrame {
                 new Trabalho1UI().setVisible(true);
             }
         });
+    }
+    
+    public void update(Observable obs, Object members) {
+        // TODO - atualizar a listagem de membros
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

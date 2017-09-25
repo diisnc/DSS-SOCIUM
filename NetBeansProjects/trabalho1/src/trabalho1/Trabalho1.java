@@ -8,15 +8,16 @@
 package trabalho1;
 import java.util.*;
 import java.text.SimpleDateFormat;
+import java.util.Observable;
 
-public final class Trabalho1 {
+public final class Trabalho1 extends Observable {
 
-    private static HashMap<String, SociUM> listasocios = new HashMap<String, SociUM>();
+    private static HashMap<String, SociUM> members = new HashMap<String, SociUM>();
 
     public static SociUM createSociUM(String numero, String nome, String curso, int anocurso, int anopresente, String morada) {
 
         SociUM newSociUM = new SociUM(numero, nome, curso, anocurso, anopresente, morada);
-        listasocios.put(nome, newSociUM);
+        members.put(nome, newSociUM);
 
         return newSociUM;
     }
@@ -43,6 +44,6 @@ public final class Trabalho1 {
         //////////////////////////////////////////////
         //////////////////////////////////////////////
         
-        Trabalho1UI.showUI();
+        Trabalho1UI.showUI(members);
     }
 }
