@@ -1,21 +1,28 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
-package trabalho1;
-
 /**
- *
- * @author Diana
- */
-public class Trabalho1 {
+* Esta é a classe principal que gere o programa.
+*
+* @author Diana Costa, Marcos Pereira, Sérgio Oliveira, Vítor Castro
+* @version 0.1
+* @since 2017-09-25
+*/
+public final class Main {
 
-    /**
-     * @param args the command line arguments
-     */
-    public static void main(String[] args) {
-        // TODO code application logic here
-    }
-    
+		private static HashMap<String, SociUM> listasocios = new HashMap<String, SociUM>();
+
+		public static void main(String[] args) {
+
+		}
+
+
+		public static SociUM createSociUM(String numero, String nome, String curso, int anocurso, int anopresente, String morada) {
+
+			SociUM newSociUM = new Socium(numero, nome, curso, anocurso, anopresente, morada);
+			listasocios.put(nome, newSociUM);
+
+			return newSociUM;
+		}
+
+		
+
+
 }
