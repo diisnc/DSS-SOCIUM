@@ -41,5 +41,22 @@ public class Quota {
     public void setDate(Date dat)   { this.date = dat; }
     public void setValue(Double val)    { this.value = val; }    
     
-    //equals, clone, toString
+    public boolean equals(Object o) {
+
+        if (o == null) return false;
+        if (o == this) return true;
+        if (!(o instanceof Quota)) return false;
+
+        Quota quota = Quota o;
+        return (this.date.equals(quota.getDate()) && this.value == quota.getValue());
+    }
+
+    public Quota clone() {
+        return new Quota(this);
+    }
+
+    public String toString() {
+        return "Date: " + getDate() "\nValue: " + getValue() + "\n";
+    }
+
 }
