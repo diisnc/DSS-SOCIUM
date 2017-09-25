@@ -34,9 +34,9 @@ public class Quota {
     
     //METODOS DE INSTANCIA
     //GETTERS
-    public Date getDate()   { return this.date; }
+    public Date getDate()   { return (Date) this.date.clone(); }
     public Double getValue()    { return this.value; }
-    
+   
     //SETTERS
     public void setDate(Date dat)   { this.date = dat; }
     public void setValue(Double val)    { this.value = val; }    
@@ -47,7 +47,7 @@ public class Quota {
         if (o == this) return true;
         if (!(o instanceof Quota)) return false;
 
-        Quota quota = Quota o;
+        Quota quota = (Quota) o;
         return (this.date.equals(quota.getDate()) && this.value == quota.getValue());
     }
 
@@ -56,7 +56,7 @@ public class Quota {
     }
 
     public String toString() {
-        return "Date: " + getDate() "\nValue: " + getValue() + "\n";
+        return ("Date: " + getDate().toString() +"\n Value: " + getValue() + "\n");
     }
 
 }

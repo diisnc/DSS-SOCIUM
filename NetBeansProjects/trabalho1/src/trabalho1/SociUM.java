@@ -30,7 +30,7 @@ public class SociUM {
         this.anoCurso = 0;
         this.anoPresente = 0;
         this.morada = "";
-        this.cotas = new ArrayList<Quota>();
+        this.cotas = new ArrayList<>();
     }
     
     public SociUM(String nmr, String name, String curs, int anoC, int ano, String morad, ArrayList<Quota> cot){
@@ -40,9 +40,9 @@ public class SociUM {
         this.anoCurso = anoC;
         this.anoPresente = ano;
         this.morada = morad;
-        this.cotas = new ArrayList<Quota>();
-        for( Quota q : cot.getQuotas()  )
-           cotas.add(c.clone());
+        this.cotas = new ArrayList<>();
+        for( Quota q : cot  )
+           cotas.add(q.clone());
             
     }
     
@@ -53,9 +53,9 @@ public class SociUM {
         this.anoCurso = s.getAnoCurso();
         this.anoPresente = s.getAnoPresente();
         this.morada = s.getMorada();
-        this.cotas = new ArrayList<Quota>();
+        this.cotas = new ArrayList<>();
         for( Quota q : s.getQuotas() )
-            cotas.add(c.clone());
+            cotas.add(q.clone());
     }
     
     
@@ -111,15 +111,16 @@ public class SociUM {
     public boolean equals(Object o){
         if( this == o ) return true;
         if( o==null || o.getClass() != this.getClass() ) return false;
-        Quota q = (Quota) o;
-        return ( q.getNumero().equals(this.numero) &&
-                 q.getNome().equals(this.nome) &&
-                 q.getCurso().equals(this.curso) &&
-                 q.getAnoCurso() == this.anoCurso &&
-                 q.getAnoPresente() == this.anoPresente &&
-                 q.getMorada().equals(this.morada) &&
-                 q.getQuotas().equals(this.cotas)
+        SociUM q = (SociUM) o;
+        return ( this.numero.equals(q.getNumero()) &&
+                 this.nome.equals(q.getNome()) &&
+                 this.curso.equals(q.getCurso()) &&
+                 this.anoCurso == q.getAnoCurso() &&
+                 this.anoPresente == q.getAnoPresente() &&
+                 this.morada.equals(q.getMorada()) &&
+                 this.cotas.equals(q.getQuotas())
                );
+        
     }
     
     
