@@ -24,9 +24,22 @@ public final class Trabalho1 {
 
 
 		public static void main(String[] args) {
+                    
+                    ///////////// TESTING ////////////////////////
+                    System.out.println("Testando trabalho1");
+                    
                     Date data = new Date();
-                    SociUM diana = createSociUM( "A78985", "Diana Costa", "MIEI", 3, 2017, "Rua das flores", {{data, 5.0}} );
-                    //diana.toString();
+                    Quota quota = new Quota(data,5.0);
+                    
+                    ArrayList<Quota> test = new ArrayList<Quota>();
+                    test.add(quota);
+                    
+                    SociUM diana = createSociUM("A78985", "Diana Costa", "MIEI", 3, 2017, "Rua das flores", test);
+                    diana.toString();
+                    System.out.println(diana);
+                    
+                    //////////////////////////////////////////////
+                    //////////////////////////////////////////////
 		}
 
 
