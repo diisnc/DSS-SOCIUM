@@ -5,7 +5,10 @@
 * @version 0.1
 * @since 2017-09-25
 */
-public final class Main {
+
+import java.util.*;
+
+public final class Trabalho1 {
 
 		private static HashMap<String, SociUM> listasocios = new HashMap<String, SociUM>();
 
@@ -22,7 +25,9 @@ public final class Main {
 			return newSociUM;
 		}
 
+
 		
+
 
 
 }
