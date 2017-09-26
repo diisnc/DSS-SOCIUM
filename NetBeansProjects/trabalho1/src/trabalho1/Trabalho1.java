@@ -7,43 +7,63 @@
 */
 package trabalho1;
 import java.util.*;
-import java.text.SimpleDateFormat;
 import java.util.Observable;
 
 public final class Trabalho1 extends Observable {
 
-    private static HashMap<String, SociUM> members = new HashMap<String, SociUM>();
+    private HashMap<String, SociUM> members;
+    
+    public Trabalho1 () {
+        this.members = new HashMap<String, SociUM>();
+    }
 
-    public static SociUM createSociUM(String numero, String nome, String curso, int anocurso, int anopresente, String morada) {
+    public SociUM createSociUM(String numero, String nome, String curso, int anocurso, int anopresente, String morada) {
 
         SociUM newSociUM = new SociUM(numero, nome, curso, anocurso, anopresente, morada);
         members.put(nome, newSociUM);
+        
+        // Notificar UI
+        setChanged();
+        notifyObservers(members); // Enviar o HashMap members como parametro para a função update() da UI
 
         return newSociUM;
     }
 
     public static void main(String[] args) {
+        
+        Trabalho1 controller = new Trabalho1();
 
         ///////////// TESTING ////////////////////////
+        
         System.out.println("Testando trabalho1");
 
-        SociUM diana = createSociUM("A78985", "Diana Costa", "MIEI", 3, 2017, "Rua das flores");
+        SociUM diana = controller.createSociUM("A78985", "Diana Costa", "MIEI", 3, 2017, "Rua das flores");
         
         Date date = new Date();
-        Quota quota = new Quota(date,5.0);
+        Quota quota = new Quota(date, 5.0);
 
         diana.addQuota(quota);
         
         diana.toString();
         System.out.println(diana);
         
-        createSociUM("A78986", "Diana Costb", "MIUI", 3, 2017, "Rua das flores");
-        createSociUM("A78987", "Diana Costc", "MIAI", 3, 2017, "Rua das LEPRAS");
-        createSociUM("A78988", "Diana Costd", "MIOI", 3, 2017, "Rua das flores");
+        controller.createSociUM("A78986", "Diana Costb", "MIUI", 3, 2017, "Rua das flores");
+        controller.createSociUM("A78987", "Diana Costc", "MIAI", 3, 2017, "Rua das LEPRAS");
+        controller.createSociUM("A78988", "Diana Costd", "MIOI", 3, 2017, "Rua das flores");
 
         //////////////////////////////////////////////
-        //////////////////////////////////////////////
         
-        Trabalho1UI.showUI(members);
+        /* Iniciar a UI */
+        java.awt.EventQueue.invokeLater(new Runnable() {
+            public void run() {
+                
+                Trabalho1UI ui = new Trabalho1UI();
+                
+                ui.show(controller.members);
+                
+                // Subscrever a UI a atualizações do modelo notificadas por esta classe
+                controller.addObserver(ui);
+            }
+        });
     }
 }

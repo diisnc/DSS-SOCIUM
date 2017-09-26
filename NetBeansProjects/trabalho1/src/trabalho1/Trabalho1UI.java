@@ -10,6 +10,9 @@ import java.util.Observer;
 import java.util.Observable;
 
 public class Trabalho1UI extends javax.swing.JFrame implements Observer {
+    
+    // O "model" em MVC
+    private HashMap<String, SociUM> members;
 
     /**
      * Creates new form trabalho1UI
@@ -75,7 +78,7 @@ public class Trabalho1UI extends javax.swing.JFrame implements Observer {
         insertDialog.setVisible(true);
     }//GEN-LAST:event_newMemberActionPerformed
 
-    public static void showUI(HashMap<String, SociUM> members) {
+    public void show(HashMap<String, SociUM> members) {
         /* Set the Nimbus look and feel */
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
         /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
@@ -100,15 +103,21 @@ public class Trabalho1UI extends javax.swing.JFrame implements Observer {
         //</editor-fold>
         //</editor-fold>
 
-        /* Create and display the form */
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                new Trabalho1UI().setVisible(true);
-            }
-        });
+        this.setVisible(true);
+        
+        this.internalUpdate(members);
     }
     
-    public void update(Observable obs, Object members) {
+    @Override
+    public void update(Observable o, Object arg) {
+        
+        this.internalUpdate(arg);
+    }
+    
+    public void internalUpdate(Object members) {
+        
+        this.members = (HashMap<String, SociUM>) members;
+        
         // TODO - atualizar a listagem de membros
     }
 
