@@ -203,8 +203,6 @@ public class Trabalho1UI extends javax.swing.JFrame implements Observer {
             data[1] = member.getName();
             
             tableModel.addRow(data);
-            
-            it.remove(); // avoids a ConcurrentModificationException
         }
         
         tableModel.fireTableDataChanged();

@@ -56,15 +56,14 @@ public final class Trabalho1 extends Observable {
                 
                 Trabalho1UI ui = new Trabalho1UI();
                 
-                System.out.println(controller.members.toString());
-                
                 ui.show(controller.members);
                 
                 // Subscrever a UI a atualizações do modelo notificadas por esta classe
                 controller.addObserver(ui);
                 
-                //controller.createSociUM("A78989", "Antonio Peixoto", "MIMI", 3, 2017, "Pe choto");
-                //controller.createSociUM("A78990", "Roberto Peichoco", "MIMU", 3, 2017, "Pe choco");
+                // Socios de teste
+                controller.createSociUM("A78989", "Antonio Peixoto", "MIMI", 3, 2017, "Pe choto");
+                controller.createSociUM("A78990", "Roberto Peichoco", "MIMU", 3, 2017, "Pe choco");
             }
         });
     }
