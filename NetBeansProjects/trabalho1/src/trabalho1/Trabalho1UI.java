@@ -6,8 +6,11 @@
 package trabalho1;
 
 import java.util.HashMap;
+import java.util.Iterator;
+import java.util.Map;
 import java.util.Observer;
 import java.util.Observable;
+import javax.swing.table.DefaultTableModel;
 
 public class Trabalho1UI extends javax.swing.JFrame implements Observer {
     
@@ -30,6 +33,8 @@ public class Trabalho1UI extends javax.swing.JFrame implements Observer {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        jScrollPane1 = new javax.swing.JScrollPane();
+        memberContainerTable = new javax.swing.JTable();
         jMenuBar1 = new javax.swing.JMenuBar();
         menuFile = new javax.swing.JMenu();
         menuNew = new javax.swing.JMenu();
@@ -37,6 +42,67 @@ public class Trabalho1UI extends javax.swing.JFrame implements Observer {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("SociUM");
+
+        jScrollPane1.setName("memberContainer"); // NOI18N
+
+        memberContainerTable.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null},
+                {null, null},
+                {null, null},
+                {null, null},
+                {null, null},
+                {null, null},
+                {null, null},
+                {null, null},
+                {null, null},
+                {null, null},
+                {null, null},
+                {null, null},
+                {null, null},
+                {null, null},
+                {null, null},
+                {null, null},
+                {null, null},
+                {null, null},
+                {null, null},
+                {null, null},
+                {null, null},
+                {null, null},
+                {null, null},
+                {null, null},
+                {null, null},
+                {null, null},
+                {null, null},
+                {null, null},
+                {null, null},
+                {null, null}
+            },
+            new String [] {
+                "Número", "Nome"
+            }
+        ) {
+            Class[] types = new Class [] {
+                java.lang.String.class, java.lang.String.class
+            };
+            boolean[] canEdit = new boolean [] {
+                false, false
+            };
+
+            public Class getColumnClass(int columnIndex) {
+                return types [columnIndex];
+            }
+
+            public boolean isCellEditable(int rowIndex, int columnIndex) {
+                return canEdit [columnIndex];
+            }
+        });
+        memberContainerTable.setName("memberContainerTable"); // NOI18N
+        jScrollPane1.setViewportView(memberContainerTable);
+        if (memberContainerTable.getColumnModel().getColumnCount() > 0) {
+            memberContainerTable.getColumnModel().getColumn(0).setPreferredWidth(70);
+            memberContainerTable.getColumnModel().getColumn(0).setMaxWidth(150);
+        }
 
         menuFile.setText("Ficheiro");
 
@@ -60,11 +126,11 @@ public class Trabalho1UI extends javax.swing.JFrame implements Observer {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 400, Short.MAX_VALUE)
+            .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 400, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 279, Short.MAX_VALUE)
+            .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 286, Short.MAX_VALUE)
         );
 
         pack();
@@ -118,11 +184,36 @@ public class Trabalho1UI extends javax.swing.JFrame implements Observer {
         
         this.members = (HashMap<String, SociUM>) members;
         
-        // TODO - atualizar a listagem de membros
+        // Atualizar a listagem de membros
+        
+        DefaultTableModel tableModel = (DefaultTableModel) memberContainerTable.getModel();
+        
+        tableModel.setRowCount(0); // Remover todas as entradas da table
+        
+        Iterator it = this.members.entrySet().iterator();
+        
+        while (it.hasNext()) {
+            Map.Entry pair = (Map.Entry) it.next();
+            
+            SociUM member = (SociUM) pair.getValue();
+            
+            String[] data = new String[2];
+            
+            data[0] = member.getNumber();
+            data[1] = member.getName();
+            
+            tableModel.addRow(data);
+            
+            it.remove(); // avoids a ConcurrentModificationException
+        }
+        
+        tableModel.fireTableDataChanged();
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JMenuBar jMenuBar1;
+    private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JTable memberContainerTable;
     private javax.swing.JMenu menuFile;
     private javax.swing.JMenu menuNew;
     private javax.swing.JMenuItem newMember;

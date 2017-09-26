@@ -20,11 +20,11 @@ public final class Trabalho1 extends Observable {
     public SociUM createSociUM(String numero, String nome, String curso, int anocurso, int anopresente, String morada) {
 
         SociUM newSociUM = new SociUM(numero, nome, curso, anocurso, anopresente, morada);
-        members.put(nome, newSociUM);
+        this.members.put(nome, newSociUM);
         
         // Notificar UI
         setChanged();
-        notifyObservers(members); // Enviar o HashMap members como parametro para a função update() da UI
+        notifyObservers(this.members); // Enviar o HashMap members como parametro para a função update() da UI
 
         return newSociUM;
     }
@@ -44,9 +44,6 @@ public final class Trabalho1 extends Observable {
 
         diana.addQuota(quota);
         
-        diana.toString();
-        System.out.println(diana);
-        
         controller.createSociUM("A78986", "Diana Costb", "MIUI", 3, 2017, "Rua das flores");
         controller.createSociUM("A78987", "Diana Costc", "MIAI", 3, 2017, "Rua das LEPRAS");
         controller.createSociUM("A78988", "Diana Costd", "MIOI", 3, 2017, "Rua das flores");
@@ -59,10 +56,15 @@ public final class Trabalho1 extends Observable {
                 
                 Trabalho1UI ui = new Trabalho1UI();
                 
+                System.out.println(controller.members.toString());
+                
                 ui.show(controller.members);
                 
                 // Subscrever a UI a atualizações do modelo notificadas por esta classe
                 controller.addObserver(ui);
+                
+                //controller.createSociUM("A78989", "Antonio Peixoto", "MIMI", 3, 2017, "Pe choto");
+                //controller.createSociUM("A78990", "Roberto Peichoco", "MIMU", 3, 2017, "Pe choco");
             }
         });
     }
