@@ -56,8 +56,8 @@ public class SociUM {
     }
     
     public SociUM(SociUM s){
-        this.numero = s.getNumero();
-        this.nome = s.getNome();
+        this.numero = s.getNumber();
+        this.nome = s.getName();
         this.curso = s.getCurso();
         this.anoCurso = s.getAnoCurso();
         this.anoPresente = s.getAnoPresente();
@@ -69,9 +69,9 @@ public class SociUM {
 
     //METODOS DE INSTANCIA
     //GETTERS
-    public String getNumero(){ return this.numero; }
+    public String getNumber(){ return this.numero; }
     
-    public String getNome(){ return this.nome; }
+    public String getName(){ return this.nome; }
     
     public String getCurso(){ return this.curso; }
     
@@ -89,9 +89,9 @@ public class SociUM {
     }
     
     //SETTERS
-    public void setNumero(String nmr){ this.numero = nmr; }
+    public void setNumber(String nmr){ this.numero = nmr; }
     
-    public void setNome(String n){ this.nome = n; }
+    public void setName(String n){ this.nome = n; }
     
     public void setCurso(String c){ this.curso = c; }
     
@@ -116,8 +116,8 @@ public class SociUM {
         if( this == o ) return true;
         if( o==null || o.getClass() != this.getClass() ) return false;
         SociUM q = (SociUM) o;
-        return ( this.numero.equals(q.getNumero()) &&
-                 this.nome.equals(q.getNome()) &&
+        return ( this.numero.equals(q.getNumber()) &&
+                 this.nome.equals(q.getName()) &&
                  this.curso.equals(q.getCurso()) &&
                  this.anoCurso == q.getAnoCurso() &&
                  this.anoPresente == q.getAnoPresente() &&
