@@ -98,6 +98,11 @@ public class Trabalho1UI extends javax.swing.JFrame implements Observer {
             }
         });
         memberContainerTable.setName("memberContainerTable"); // NOI18N
+        memberContainerTable.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                memberContainerTableMouseClicked(evt);
+            }
+        });
         jScrollPane1.setViewportView(memberContainerTable);
         if (memberContainerTable.getColumnModel().getColumnCount() > 0) {
             memberContainerTable.getColumnModel().getColumn(0).setPreferredWidth(70);
@@ -142,7 +147,30 @@ public class Trabalho1UI extends javax.swing.JFrame implements Observer {
         InsertMemberUI insertDialog = new InsertMemberUI(Trabalho1UI.this, true);
         
         insertDialog.setVisible(true);
+        
     }//GEN-LAST:event_newMemberActionPerformed
+
+    private void memberContainerTableMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_memberContainerTableMouseClicked
+        int index = memberContainerTable.getSelectedRow();
+        int i = 0;
+        SociUM SelectedSocium = new SociUM();
+      
+        for (Map.Entry<String, SociUM> entry : members.entrySet()) {
+            if (i == index) {
+                SelectedSocium = entry.getValue();
+                break;
+            }
+            else {
+                i++;
+                SelectedSocium = null;
+            }
+        }
+        
+        ChangeMemberUI insertDialog = new ChangeMemberUI(Trabalho1UI.this, true, SelectedSocium);
+        
+        insertDialog.setVisible(true);
+        
+    }//GEN-LAST:event_memberContainerTableMouseClicked
 
     public void show(HashMap<String, SociUM> members) {
         /* Set the Nimbus look and feel */

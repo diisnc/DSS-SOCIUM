@@ -9,7 +9,7 @@ package trabalho1;
 */
 
 import java.util.*;
-public class Quota {
+public class Quota extends SociUM{
     
     //VARIAVEIS DE INSTANCIA
     private Date date;
