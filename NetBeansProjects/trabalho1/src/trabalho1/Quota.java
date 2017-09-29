@@ -21,6 +21,11 @@ public class Quota extends SociUM{
     this.value = 0.0;
     }
     
+    public Quota(Double d){
+    this.date = new Date();
+    this.value = d;
+    }
+    
     public Quota(Date dat, Double val){
         this.date = dat;
         this.value = val;

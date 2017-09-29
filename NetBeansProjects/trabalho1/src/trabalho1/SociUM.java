@@ -108,9 +108,13 @@ public class SociUM {
     }
     
     //adiciona UMA cota, usar este método
+    public void addQuota(double d){
+        this.quotas.add(new Quota(d));
+    }
+    
     public void addQuota(Quota q){
         this.quotas.add(q.clone());
-    } 
+    }
    
     public boolean equals(Object o){
         if( this == o ) return true;
