@@ -144,6 +144,21 @@ public class SociUM {
         return s.toString();
     }
     
+    public String toString2(){
+        StringBuilder s = new StringBuilder();
+        s.append("----------SOCIO----------\n");
+        s.append("NUMERO: " +this.numero+ "\n");
+        s.append("NOME: " +this.nome+ "\n");
+        s.append("CURSO: " +this.curso+ "\n");
+        s.append("ANO CURSO: " +this.anoCurso+ "\n");
+        s.append("ANO PRESENTE: " +this.anoPresente+ "\n");
+        s.append("MORADA: " +this.morada+ "\n");
+        s.append("-------------------------\n");
+        
+    
+        return s.toString();
+    }
+    
     public SociUM clone(){
         return new SociUM(this);
     }
