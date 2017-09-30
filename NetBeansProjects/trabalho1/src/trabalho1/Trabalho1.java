@@ -16,6 +16,10 @@ public final class Trabalho1 extends Observable {
     public Trabalho1 () {
         this.members = new HashMap<String, SociUM>();
     }
+    
+    public HashMap<String, SociUM> getMembers() {
+        return this.members;
+    }
 
     public SociUM createSociUM(String numero, String nome, String curso, int anocurso, int anopresente, String morada) {
 
@@ -54,7 +58,7 @@ public final class Trabalho1 extends Observable {
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
                 
-                Trabalho1UI ui = new Trabalho1UI();
+                Trabalho1UI ui = new Trabalho1UI(controller);
                 
                 ui.show(controller.members);
                 

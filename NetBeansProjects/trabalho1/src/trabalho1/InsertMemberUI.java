@@ -10,13 +10,23 @@ import javax.swing.JOptionPane;
 
 /**
  *
- * @author marco
+ * @author marcos
  */
 public class InsertMemberUI extends javax.swing.JDialog {
+    
+    // Podíamos retornar valores para a janela mãe (Trabalho1UI), mas recebendo
+    // o controlador é mais fácil e rápido
+    private Trabalho1 controller;
 
     /** Creates new form InsertMemberUI */
-    public InsertMemberUI(java.awt.Frame parent, boolean modal) {
-        super(parent, modal);
+    public InsertMemberUI(java.awt.Frame parent, Trabalho1 controller) {
+        
+        // Ter a certeza que este diálogo vai ser modal
+        super((java.awt.Frame) null, true);
+        setModalityType(java.awt.Dialog.ModalityType.APPLICATION_MODAL);
+        
+        this.controller = controller;
+        
         initComponents();
         /*
         namefield.setText(member.getName());
@@ -131,60 +141,14 @@ public class InsertMemberUI extends javax.swing.JDialog {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        Trabalho1 controller = new Trabalho1();
-        controller.createSociUM(numfield.getText(), namefield.getText(), coursefield.getText(), Integer.parseInt(yearfield.getText()), 2017, addressfield.getText());
+
+        this.controller.createSociUM(numfield.getText(), namefield.getText(), coursefield.getText(), Integer.parseInt(yearfield.getText()), 2017, addressfield.getText());
         
         JOptionPane.showMessageDialog(null, "Novo Sócio Salvo!");
+        
+        // Fechar o diálogo
+        dispose();
     }//GEN-LAST:event_jButton1ActionPerformed
-
-    /**
-     * @param args the command line arguments
-     */
-    public static void main(String args[]) {
-        /* Set the Nimbus look and feel */
-        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
-        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
-         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
-         */
-        try {
-            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
-                if ("Nimbus".equals(info.getName())) {
-                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
-                    break;
-                }
-            }
-        } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(InsertMemberUI.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(InsertMemberUI.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(InsertMemberUI.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(InsertMemberUI.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        }
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-
-        /* Create and display the dialog */
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                InsertMemberUI dialog = new InsertMemberUI(new javax.swing.JFrame(), true);
-                dialog.addWindowListener(new java.awt.event.WindowAdapter() {
-                    @Override
-                    public void windowClosing(java.awt.event.WindowEvent e) {
-                        System.exit(0);
-                    }
-                });
-                dialog.setVisible(true);
-            }
-        });
-    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JTextField addressfield;

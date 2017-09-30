@@ -14,13 +14,17 @@ import javax.swing.table.DefaultTableModel;
 
 public class Trabalho1UI extends javax.swing.JFrame implements Observer {
     
-    // O "model" em MVC
-    private HashMap<String, SociUM> members;
+    // O controller - precisamos de ter uma refêrencia ao controlador
+    // para lhe podermos enviar eventos a partir da UI
+    private Trabalho1 controller;
 
     /**
      * Creates new form trabalho1UI
      */
-    public Trabalho1UI() {
+    public Trabalho1UI(Trabalho1 controller) {
+        
+        this.controller = controller;
+        
         initComponents();
     }
 
@@ -144,10 +148,9 @@ public class Trabalho1UI extends javax.swing.JFrame implements Observer {
     private void newMemberActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_newMemberActionPerformed
         
         // Abrir diálogo de inserção membrária
-        InsertMemberUI insertDialog = new InsertMemberUI(Trabalho1UI.this, true);
+        InsertMemberUI insertDialog = new InsertMemberUI(Trabalho1UI.this, this.controller);
         
         insertDialog.setVisible(true);
-        
     }//GEN-LAST:event_newMemberActionPerformed
 
     private void memberContainerTableMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_memberContainerTableMouseClicked
@@ -155,7 +158,7 @@ public class Trabalho1UI extends javax.swing.JFrame implements Observer {
         int i = 0;
         SociUM SelectedSocium = new SociUM();
       
-        for (Map.Entry<String, SociUM> entry : members.entrySet()) {
+        for (Map.Entry<String, SociUM> entry : this.controller.getMembers().entrySet()) {
             if (i == index) {
                 SelectedSocium = entry.getValue();
                 break;
@@ -205,20 +208,22 @@ public class Trabalho1UI extends javax.swing.JFrame implements Observer {
     @Override
     public void update(Observable o, Object arg) {
         
+        // Este update tem a ver com a interface observer, como recebe dois argumentos apenas serve
+        // de ponte para o update interno, que é usado também em outros casos (inicialização, por exemplo)
         this.internalUpdate(arg);
     }
     
     public void internalUpdate(Object members) {
         
-        this.members = (HashMap<String, SociUM>) members;
-        
         // Atualizar a listagem de membros
+        
+        HashMap<String, SociUM> membersMap = (HashMap<String, SociUM>) members;
         
         DefaultTableModel tableModel = (DefaultTableModel) memberContainerTable.getModel();
         
         tableModel.setRowCount(0); // Remover todas as entradas da table
         
-        Iterator it = this.members.entrySet().iterator();
+        Iterator it = membersMap.entrySet().iterator();
         
         while (it.hasNext()) {
             Map.Entry pair = (Map.Entry) it.next();
