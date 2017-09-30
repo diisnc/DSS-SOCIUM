@@ -4,9 +4,9 @@ Trabalho de DSS que permite gerir quotas de sócios de uma organização atravé
 
 ## Separação de responsabilidades (MVC)
 
-Neste projeto existem duas classes principais, `Trabalho1` é a classe principal e controlador ao mesmo tempo, e `Trabalho1UI` é a view e representa uma interface gráfica SWING.
+Neste projeto existem duas classes importantes, `Trabalho1` é o controlador, além disso, tem o `main()` e por isso inicia a aplicação. `Trabalho1UI` é a view e representa uma interface gráfica SWING.
 
-Para o modelo, por ser um simples HashMap, não foi criada uma classe.
+Para o modelo, por ser um simples HashMap, não foi criada uma classe, apenas um campo privado no controlador e um método `getMembers()`.
 
 A função `main()`, dentro da classe `Trabalho1`, trata de instanciar a view e o controlador e passar a instância do controlador para a view. Isto é necessário porque a view precisa de enviar eventos (como submissão de formulários) para o controlador.
 
