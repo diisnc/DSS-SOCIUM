@@ -6,6 +6,8 @@
 
 package trabalho1;
 
+import javax.swing.JOptionPane;
+
 /**
  *
  * @author marco
@@ -45,6 +47,7 @@ public class InsertMemberUI extends javax.swing.JDialog {
         coursefield = new javax.swing.JTextField();
         yearfield = new javax.swing.JTextField();
         addressfield = new javax.swing.JTextField();
+        jButton1 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setTitle("Inserir Membro");
@@ -62,29 +65,38 @@ public class InsertMemberUI extends javax.swing.JDialog {
 
         jLabel5.setText("Morada");
 
+        jButton1.setText("Guardar");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel1)
-                            .addComponent(jLabel2)
-                            .addComponent(jLabel3)
-                            .addComponent(jLabel4))
-                        .addGap(27, 27, 27)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                            .addComponent(coursefield, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 264, Short.MAX_VALUE)
-                            .addComponent(namefield, javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(numfield, javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(yearfield)))
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(jLabel5)
-                        .addGap(30, 30, 30)
-                        .addComponent(addressfield, javax.swing.GroupLayout.DEFAULT_SIZE, 262, Short.MAX_VALUE)))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(jButton1)
+                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                        .addGroup(layout.createSequentialGroup()
+                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                .addComponent(jLabel1)
+                                .addComponent(jLabel2)
+                                .addComponent(jLabel3)
+                                .addComponent(jLabel4))
+                            .addGap(27, 27, 27)
+                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                                .addComponent(coursefield, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 264, Short.MAX_VALUE)
+                                .addComponent(namefield, javax.swing.GroupLayout.Alignment.LEADING)
+                                .addComponent(numfield, javax.swing.GroupLayout.Alignment.LEADING)
+                                .addComponent(yearfield)))
+                        .addGroup(layout.createSequentialGroup()
+                            .addComponent(jLabel5)
+                            .addGap(30, 30, 30)
+                            .addComponent(addressfield, javax.swing.GroupLayout.DEFAULT_SIZE, 262, Short.MAX_VALUE))))
                 .addContainerGap(62, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
@@ -110,11 +122,20 @@ public class InsertMemberUI extends javax.swing.JDialog {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel5)
                     .addComponent(addressfield, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(98, Short.MAX_VALUE))
+                .addGap(30, 30, 30)
+                .addComponent(jButton1)
+                .addContainerGap(45, Short.MAX_VALUE))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        Trabalho1 controller = new Trabalho1();
+        controller.createSociUM(numfield.getText(), namefield.getText(), coursefield.getText(), Integer.parseInt(yearfield.getText()), 2017, addressfield.getText());
+        
+        JOptionPane.showMessageDialog(null, "Novo Sócio Salvo!");
+    }//GEN-LAST:event_jButton1ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -168,6 +189,7 @@ public class InsertMemberUI extends javax.swing.JDialog {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JTextField addressfield;
     private javax.swing.JTextField coursefield;
+    private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;

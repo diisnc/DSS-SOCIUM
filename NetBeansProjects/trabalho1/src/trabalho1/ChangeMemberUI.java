@@ -50,6 +50,7 @@ public class ChangeMemberUI extends javax.swing.JDialog {
         yearfield = new javax.swing.JTextField();
         addressfield = new javax.swing.JTextField();
         jButton2 = new javax.swing.JButton();
+        jButton3 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setTitle("Detalhes do Membro");
@@ -81,6 +82,13 @@ public class ChangeMemberUI extends javax.swing.JDialog {
             }
         });
 
+        jButton3.setText("Guardar");
+        jButton3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton3ActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -88,6 +96,7 @@ public class ChangeMemberUI extends javax.swing.JDialog {
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(jButton3)
                     .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                         .addGroup(layout.createSequentialGroup()
                             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -138,7 +147,9 @@ public class ChangeMemberUI extends javax.swing.JDialog {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel5)
                     .addComponent(addressfield, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(83, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 35, Short.MAX_VALUE)
+                .addComponent(jButton3)
+                .addGap(25, 25, 25))
         );
 
         pack();
@@ -156,6 +167,17 @@ public class ChangeMemberUI extends javax.swing.JDialog {
         JOptionPane.showMessageDialog(null, "Cotas pagas!");
         member.addQuota(5.0);
     }//GEN-LAST:event_jButton2ActionPerformed
+
+    private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
+
+        member.setName(namefield.getText());
+        member.setNumber(numfield.getText());
+        member.setCurso(coursefield.getText());
+        member.setAnoCurso(Integer.parseInt(yearfield.getText()));
+        member.setMorada(addressfield.getText());
+        
+        JOptionPane.showMessageDialog(null, "Alterações Salvas!");
+    }//GEN-LAST:event_jButton3ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -205,6 +227,7 @@ public class ChangeMemberUI extends javax.swing.JDialog {
     private javax.swing.JTextField coursefield;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
+    private javax.swing.JButton jButton3;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
