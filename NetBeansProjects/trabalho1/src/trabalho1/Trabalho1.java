@@ -46,6 +46,16 @@ public final class Trabalho1 extends Observable {
         notifyObservers(this.members); // Enviar o HashMap members como parametro para a função update() da UI
         
     }
+    
+    public void removeSociUM(String name) {
+
+        this.members.remove(name);
+        
+        // Notificar UI
+        setChanged();
+        notifyObservers(this.members); // Enviar o HashMap members como parametro para a função update() da UI
+        
+    }
 
     public static void main(String[] args) {
         
