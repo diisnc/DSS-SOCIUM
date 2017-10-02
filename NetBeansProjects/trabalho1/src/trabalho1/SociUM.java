@@ -41,7 +41,7 @@ public class SociUM {
         this.anoPresente = ano;
         this.morada = morad;
         this.quotas = new ArrayList<>();
-        for( Quota q : cot  )
+        for(Quota q: cot)
            quotas.add(q.clone());   
     }
     
@@ -63,8 +63,9 @@ public class SociUM {
         this.anoPresente = s.getAnoPresente();
         this.morada = s.getMorada();
         this.quotas = new ArrayList<>();
-        for( Quota q : s.getQuotas() )
+        for(Quota q: s.getQuotas()) {
             quotas.add(q.clone());
+        }
     }
 
     //METODOS DE INSTANCIA
@@ -84,7 +85,9 @@ public class SociUM {
     //devolve todas as quotas de um sócio
     public ArrayList<Quota> getQuotas(){
         ArrayList<Quota> ret = new ArrayList<Quota>();
-        for( Quota q : this.quotas){ ret.add(q.clone()); }
+        for(Quota q : this.quotas) {
+            ret.add(q.clone()); 
+        }
         return ret;
     }
     
@@ -104,7 +107,9 @@ public class SociUM {
     //n deve ser preciso este método, mas wtv
     //adiciona quotas a um aluno, passadas como parâmetro 
     public void addQuotas(ArrayList<Quota> cot){
-        for( Quota q : cot ){ this.quotas.add(q.clone()); }
+        for(Quota q: cot) {
+            this.quotas.add(q.clone()); 
+        }
     }
     
     //adiciona UMA cota, usar este método
@@ -117,8 +122,8 @@ public class SociUM {
     }
    
     public boolean equals(Object o){
-        if( this == o ) return true;
-        if( o==null || o.getClass() != this.getClass() ) return false;
+        if (this == o) return true;
+        if (o==null || o.getClass() != this.getClass()) return false;
         SociUM q = (SociUM) o;
         return ( this.numero.equals(q.getNumber()) &&
                  this.nome.equals(q.getName()) &&
@@ -142,21 +147,6 @@ public class SociUM {
         s.append("COTAS: \n");
         for(Quota q : this.quotas)
             s.append(q.toString());
-        s.append("-------------------------\n");
-        
-    
-        return s.toString();
-    }
-    
-    public String toString2(){
-        StringBuilder s = new StringBuilder();
-        s.append("----------SOCIO----------\n");
-        s.append("NUMERO: " +this.numero+ "\n");
-        s.append("NOME: " +this.nome+ "\n");
-        s.append("CURSO: " +this.curso+ "\n");
-        s.append("ANO CURSO: " +this.anoCurso+ "\n");
-        s.append("ANO PRESENTE: " +this.anoPresente+ "\n");
-        s.append("MORADA: " +this.morada+ "\n");
         s.append("-------------------------\n");
         
     
