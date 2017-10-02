@@ -33,6 +33,20 @@ public final class Trabalho1 extends Observable {
         return newSociUM;
     }
 
+    public void changeSociUM(SociUM oldmember, String numero, String nome, String curso, int anocurso, int anopresente, String morada) {
+
+        oldmember.setName(nome);
+        oldmember.setNumber(numero);
+        oldmember.setCurso(curso);
+        oldmember.setAnoCurso(anocurso);
+        oldmember.setMorada(morada);
+        
+        // Notificar UI
+        setChanged();
+        notifyObservers(this.members); // Enviar o HashMap members como parametro para a função update() da UI
+        
+    }
+
     public static void main(String[] args) {
         
         Trabalho1 controller = new Trabalho1();

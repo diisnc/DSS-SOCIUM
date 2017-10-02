@@ -169,7 +169,7 @@ public class Trabalho1UI extends javax.swing.JFrame implements Observer {
             }
         }
         
-        ChangeMemberUI insertDialog = new ChangeMemberUI(Trabalho1UI.this, true, SelectedSocium);
+        ChangeMemberUI insertDialog = new ChangeMemberUI(Trabalho1UI.this, true, SelectedSocium, controller);
         
         insertDialog.setVisible(true);
         

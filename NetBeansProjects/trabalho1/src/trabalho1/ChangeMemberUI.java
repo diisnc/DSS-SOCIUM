@@ -14,11 +14,13 @@ import javax.swing.JOptionPane;
  */
 public class ChangeMemberUI extends javax.swing.JDialog {
     private SociUM member;
+    private Trabalho1 controller;
 
     /** Creates new form InsertMemberUI */
-    public ChangeMemberUI(java.awt.Frame parent, boolean modal, SociUM memberarg) {
+    public ChangeMemberUI(java.awt.Frame parent, boolean modal, SociUM memberarg, Trabalho1 controller) {
         super(parent, modal);
         member = memberarg;
+        this.controller = controller;
         initComponents();
         
         namefield.setText(member.getName());
@@ -170,18 +172,16 @@ public class ChangeMemberUI extends javax.swing.JDialog {
 
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
 
-        member.setName(namefield.getText());
-        member.setNumber(numfield.getText());
-        member.setCurso(coursefield.getText());
-        member.setAnoCurso(Integer.parseInt(yearfield.getText()));
-        member.setMorada(addressfield.getText());
+        this.controller.changeSociUM(this.member, numfield.getText(), namefield.getText(), coursefield.getText(), Integer.parseInt(yearfield.getText()), 2017, addressfield.getText());
         
         JOptionPane.showMessageDialog(null, "Alterações Salvas!");
+        dispose();
     }//GEN-LAST:event_jButton3ActionPerformed
 
     /**
      * @param args the command line arguments
      */
+    
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
@@ -210,7 +210,7 @@ public class ChangeMemberUI extends javax.swing.JDialog {
         /* Create and display the dialog */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                ChangeMemberUI dialog = new ChangeMemberUI(new javax.swing.JFrame(), true, new SociUM());
+                ChangeMemberUI dialog = new ChangeMemberUI(new javax.swing.JFrame(), true, new SociUM(), new Trabalho1());
                 dialog.addWindowListener(new java.awt.event.WindowAdapter() {
                     @Override
                     public void windowClosing(java.awt.event.WindowEvent e) {
@@ -221,6 +221,7 @@ public class ChangeMemberUI extends javax.swing.JDialog {
             }
         });
     }
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JTextField addressfield;
