@@ -22,10 +22,10 @@ public final class Trabalho1 extends Observable {
     }
     
     
-    public SociUM createSociUM(String numero, String nome, String curso, int anocurso, int anopresente, String morada) {
+    public SociUM createSociUM(String nmb, String name, String course, int year, String address, Boolean mp) {
 
-        SociUM newSociUM = new SociUM(numero, nome, curso, anocurso, anopresente, morada);
-        this.members.put(nome, newSociUM);
+        SociUM newSociUM = new SociUM(nmb, name, course, year, address, mp);
+        this.members.put(name, newSociUM);
         
         // Notificar UI
         setChanged();
@@ -34,13 +34,13 @@ public final class Trabalho1 extends Observable {
         return newSociUM;
     }
 
-    public void changeSociUM(SociUM oldmember, String numero, String nome, String curso, int anocurso, int anopresente, String morada) {
+    public void changeSociUM(SociUM oldmember, String nmb, String name, String course, int year, String address) {
 
-        oldmember.setName(nome);
-        oldmember.setNumber(numero);
-        oldmember.setCurso(curso);
-        oldmember.setAnoCurso(anocurso);
-        oldmember.setMorada(morada);
+        oldmember.setName(name);
+        oldmember.setNumber(nmb);
+        oldmember.setCourse(course);
+        oldmember.setYear(year);
+        oldmember.setAddress(address);
         
         // Notificar UI
         setChanged();
@@ -52,6 +52,27 @@ public final class Trabalho1 extends Observable {
 
         this.members.remove(name);
         
+        // Notificar UI
+        setChanged();
+        notifyObservers(this.members); // Enviar o HashMap members como parametro para a função update() da UI
+        
+    }
+    
+    public void monthpaid(SociUM s) {
+        if (s.getQuotas() != null && !s.getQuotas().isEmpty()) {
+            Quota lastquota = s.getQuotas().get(s.getQuotas().size()-1);
+            if (lastquota.getDate().getMonth() ==  Calendar.getInstance().get(Calendar.MONTH)) {
+                s.setMonthPaid(true);
+            }
+            else s.setMonthPaid(false);
+        
+        }
+    }
+    
+    public void payQuota(SociUM s) {
+       
+        s.addQuota(5.0);
+
         // Notificar UI
         setChanged();
         notifyObservers(this.members); // Enviar o HashMap members como parametro para a função update() da UI

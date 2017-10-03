@@ -6,73 +6,73 @@ public class SociUM implements Serializable {
     
     //VARIAVEIS DE INSTANCIA
     private static final long serialVersionUID = 7526472295622776147L;
-    private String numero;                  //A10000
-    private String nome;                    //Álvaro de Campos
-    private String curso;                   //código do curso(MIEI)
-    private int anoCurso;                   //2
-    private int anoPresente;                //2017
-    private String morada;                  //rua da misericórdia
+    private String number;                  //A10000
+    private String name;                    //Álvaro de Campos
+    private String course;                  //código do curso(MIEI)
+    private int year;                       //2
+    private String address;                 //rua da misericórdia
     private ArrayList<Quota> quotas;        //<data,valor pago>, ordenado por data
+    private Boolean monthpaid;
    
     //CONSTRUTORES
     public SociUM(){
-    this.numero = "";
-        this.nome = "";
-        this.curso = "";
-        this.anoCurso = 0;
-        this.anoPresente = 0;
-        this.morada = "";
+        this.number = "";
+        this.name = "";
+        this.course = "";
+        this.year = 0;
+        this.address = "";
         this.quotas = new ArrayList<>();
+        this.monthpaid = false;
     }
     
-    public SociUM(String nmr, String name, String curs, int anoC, int ano, String morad, ArrayList<Quota> cot){
-        this.numero = nmr;
-        this.nome = name;
-        this.curso = curs;
-        this.anoCurso = anoC;
-        this.anoPresente = ano;
-        this.morada = morad;
+    public SociUM(String nmb, String name, String cours, int yea, String addres, ArrayList<Quota> quo, Boolean mp){
+        this.number = nmb;
+        this.name = name;
+        this.course = cours;
+        this.year = yea;
+        this.address = addres;
         this.quotas = new ArrayList<>();
-        for(Quota q: cot)
+        for(Quota q: quo)
            quotas.add(q.clone());   
+        this.monthpaid = mp;
     }
     
-    public SociUM(String nmr, String name, String curs, int anoC, int ano, String morad){
-        this.numero = nmr;
-        this.nome = name;
-        this.curso = curs;
-        this.anoCurso = anoC;
-        this.anoPresente = ano;
-        this.morada = morad;
+    public SociUM(String nmb, String name, String cours, int yea, String addres, Boolean mp){
+        this.number = nmb;
+        this.name = name;
+        this.course = cours;
+        this.year = yea;
+        this.address = addres;
         this.quotas = new ArrayList<>();  
+        this.monthpaid = mp;
     }
     
     public SociUM(SociUM s){
-        this.numero = s.getNumber();
-        this.nome = s.getName();
-        this.curso = s.getCurso();
-        this.anoCurso = s.getAnoCurso();
-        this.anoPresente = s.getAnoPresente();
-        this.morada = s.getMorada();
+        this.number = s.getNumber();
+        this.name = s.getName();
+        this.course = s.getCourse();
+        this.year = s.getYear();
+        this.address = s.getAddress();
         this.quotas = new ArrayList<>();
         for(Quota q: s.getQuotas()) {
             quotas.add(q.clone());
         }
+        this.monthpaid = s.getMonthPaid();
     }
 
     //METODOS DE INSTANCIA
     //GETTERS
-    public String getNumber(){ return this.numero; }
+    public String getNumber(){ return this.number; }
     
-    public String getName(){ return this.nome; }
+    public String getName(){ return this.name; }
     
-    public String getCurso(){ return this.curso; }
+    public String getCourse(){ return this.course; }
     
-    public int getAnoCurso(){ return this.anoCurso; }
+    public int getYear(){ return this.year; }
     
-    public int getAnoPresente(){ return this.anoPresente; }
+    public String getAddress(){ return this.address; }
     
-    public String getMorada(){ return this.morada; }
+    public Boolean getMonthPaid() { return this.monthpaid; }
     
     //devolve todas as quotas de um sócio
     public ArrayList<Quota> getQuotas(){
@@ -84,22 +84,22 @@ public class SociUM implements Serializable {
     }
     
     //SETTERS
-    public void setNumber(String nmr){ this.numero = nmr; }
+    public void setNumber(String nmr){ this.number = nmr; }
     
-    public void setName(String n){ this.nome = n; }
+    public void setName(String n){ this.name = n; }
     
-    public void setCurso(String c){ this.curso = c; }
+    public void setCourse(String c){ this.course = c; }
     
-    public void setAnoCurso(int ano){ this.anoCurso = ano; }
+    public void setYear(int yea){ this.year = yea; }
     
-    public void setAnoPresente(int anop){ this.anoPresente = anop; }
+    public void setAddress(String addres){ this.address = addres; }
     
-    public void setMorada(String morad){ this.morada = morad; }
+    public void setMonthPaid(Boolean mp) { this.monthpaid = mp; }
     
     //n deve ser preciso este método, mas wtv
     //adiciona quotas a um aluno, passadas como parâmetro 
-    public void addQuotas(ArrayList<Quota> cot){
-        for(Quota q: cot) {
+    public void addQuotas(ArrayList<Quota> quo){
+        for(Quota q: quo) {
             this.quotas.add(q.clone()); 
         }
     }
@@ -117,25 +117,24 @@ public class SociUM implements Serializable {
         if (this == o) return true;
         if (o==null || o.getClass() != this.getClass()) return false;
         SociUM q = (SociUM) o;
-        return ( this.numero.equals(q.getNumber()) &&
-                 this.nome.equals(q.getName()) &&
-                 this.curso.equals(q.getCurso()) &&
-                 this.anoCurso == q.getAnoCurso() &&
-                 this.anoPresente == q.getAnoPresente() &&
-                 this.morada.equals(q.getMorada()) &&
-                 this.quotas.equals(q.getQuotas())
+        return ( this.number.equals(q.getNumber()) &&
+                 this.name.equals(q.getName()) &&
+                 this.course.equals(q.getCourse()) &&
+                 this.year == q.getYear() &&
+                 this.address.equals(q.getAddress()) &&
+                 this.quotas.equals(q.getQuotas()) &&
+                 this.monthpaid.equals(q.getMonthPaid())
                );
     }
     
     public String toString(){
         StringBuilder s = new StringBuilder();
         s.append("----------SOCIO----------\n");
-        s.append("NUMERO: " +this.numero+ "\n");
-        s.append("NOME: " +this.nome+ "\n");
-        s.append("CURSO: " +this.curso+ "\n");
-        s.append("ANO CURSO: " +this.anoCurso+ "\n");
-        s.append("ANO PRESENTE: " +this.anoPresente+ "\n");
-        s.append("MORADA: " +this.morada+ "\n");
+        s.append("NUMERO: " +this.number+ "\n");
+        s.append("NOME: " +this.name+ "\n");
+        s.append("CURSO: " +this.course+ "\n");
+        s.append("ANO CURSO: " +this.year+ "\n");
+        s.append("MORADA: " +this.address+ "\n");
         s.append("COTAS: \n");
         for(Quota q : this.quotas)
             s.append(q.toString());

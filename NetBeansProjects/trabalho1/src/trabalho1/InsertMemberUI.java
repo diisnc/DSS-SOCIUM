@@ -125,7 +125,7 @@ public class InsertMemberUI extends javax.swing.JDialog {
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
 
-        this.controller.createSociUM(numfield.getText(), namefield.getText(), coursefield.getText(), Integer.parseInt(yearfield.getText()), 2017, addressfield.getText());
+        this.controller.createSociUM(numfield.getText(), namefield.getText(), coursefield.getText(), Integer.parseInt(yearfield.getText()), addressfield.getText(), false);
         
         JOptionPane.showMessageDialog(null, "Novo Sócio Salvo!");
         

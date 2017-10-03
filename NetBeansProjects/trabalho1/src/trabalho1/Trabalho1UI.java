@@ -4,7 +4,7 @@ import java.util.Iterator;
 import java.util.Map;
 import java.util.Observer;
 import java.util.Observable;
-import javax.swing.table.DefaultTableModel;
+import javax.swing.table.*;
 import javax.swing.*;
 import javax.swing.table.DefaultTableCellRenderer;
 
@@ -51,46 +51,46 @@ public class Trabalho1UI extends javax.swing.JFrame implements Observer {
         memberContainerTable.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         memberContainerTable.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null},
-                {null, null},
-                {null, null},
-                {null, null},
-                {null, null},
-                {null, null},
-                {null, null},
-                {null, null},
-                {null, null},
-                {null, null},
-                {null, null},
-                {null, null},
-                {null, null},
-                {null, null},
-                {null, null},
-                {null, null},
-                {null, null},
-                {null, null},
-                {null, null},
-                {null, null},
-                {null, null},
-                {null, null},
-                {null, null},
-                {null, null},
-                {null, null},
-                {null, null},
-                {null, null},
-                {null, null},
-                {null, null},
-                {null, null}
+                {null, null, null},
+                {null, null, null},
+                {null, null, null},
+                {null, null, null},
+                {null, null, null},
+                {null, null, null},
+                {null, null, null},
+                {null, null, null},
+                {null, null, null},
+                {null, null, null},
+                {null, null, null},
+                {null, null, null},
+                {null, null, null},
+                {null, null, null},
+                {null, null, null},
+                {null, null, null},
+                {null, null, null},
+                {null, null, null},
+                {null, null, null},
+                {null, null, null},
+                {null, null, null},
+                {null, null, null},
+                {null, null, null},
+                {null, null, null},
+                {null, null, null},
+                {null, null, null},
+                {null, null, null},
+                {null, null, null},
+                {null, null, null},
+                {null, null, null}
             },
             new String [] {
-                "Número", "Nome"
+                "Número", "Nome", "Quota em dia"
             }
         ) {
             Class[] types = new Class [] {
-                java.lang.String.class, java.lang.String.class
+                java.lang.String.class, java.lang.String.class, java.lang.Boolean.class
             };
             boolean[] canEdit = new boolean [] {
-                false, false
+                false, false, false
             };
 
             public Class getColumnClass(int columnIndex) {
@@ -111,6 +111,7 @@ public class Trabalho1UI extends javax.swing.JFrame implements Observer {
         if (memberContainerTable.getColumnModel().getColumnCount() > 0) {
             memberContainerTable.getColumnModel().getColumn(0).setPreferredWidth(70);
             memberContainerTable.getColumnModel().getColumn(0).setMaxWidth(150);
+            memberContainerTable.getColumnModel().getColumn(2).setMaxWidth(400);
         }
 
         menuFile.setText("Ficheiro");
@@ -262,7 +263,9 @@ public class Trabalho1UI extends javax.swing.JFrame implements Observer {
             data[0] = member.getNumber();
             data[1] = member.getName();
             
-            tableModel.addRow(data);
+            controller.monthpaid(member);
+
+            tableModel.addRow(new Object[]{data[0], data[1], member.getMonthPaid()});
         }
         
         tableModel.fireTableDataChanged();

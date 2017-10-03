@@ -57,6 +57,7 @@ public class QuotasPaid extends javax.swing.JDialog {
 
         jScrollPane1.setName("memberContainer"); // NOI18N
 
+        memberContainerTable.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         memberContainerTable.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null},
@@ -111,12 +112,17 @@ public class QuotasPaid extends javax.swing.JDialog {
         });
         memberContainerTable.setName("memberContainerTable"); // NOI18N
         jScrollPane1.setViewportView(memberContainerTable);
+        if (memberContainerTable.getColumnModel().getColumnCount() > 0) {
+            memberContainerTable.getColumnModel().getColumn(0).setMaxWidth(200);
+        }
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 400, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 220, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)

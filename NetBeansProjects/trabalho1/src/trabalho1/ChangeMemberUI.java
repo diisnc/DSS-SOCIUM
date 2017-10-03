@@ -16,9 +16,9 @@ public class ChangeMemberUI extends javax.swing.JDialog {
         
         namefield.setText(member.getName());
         numfield.setText(member.getNumber());
-        coursefield.setText(member.getCurso());
-        yearfield.setText(Integer.toString(member.getAnoCurso()));
-        addressfield.setText(member.getMorada());
+        coursefield.setText(member.getCourse());
+        yearfield.setText(Integer.toString(member.getYear()));
+        addressfield.setText(member.getAddress());
         
     }
 
@@ -169,13 +169,13 @@ public class ChangeMemberUI extends javax.swing.JDialog {
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+        controller.payQuota(member);
         JOptionPane.showMessageDialog(null, "Cotas pagas!");
-        member.addQuota(5.0);
     }//GEN-LAST:event_jButton2ActionPerformed
 
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
 
-        this.controller.changeSociUM(this.member, numfield.getText(), namefield.getText(), coursefield.getText(), Integer.parseInt(yearfield.getText()), 2017, addressfield.getText());
+        this.controller.changeSociUM(this.member, numfield.getText(), namefield.getText(), coursefield.getText(), Integer.parseInt(yearfield.getText()), addressfield.getText());
         
         JOptionPane.showMessageDialog(null, "Alterações Salvas!");
         dispose();
