@@ -1,6 +1,10 @@
 package trabalho1;
 import javax.swing.JOptionPane;
 
+/**
+ * Classe que representa a janela  de inserção de um novo sócio
+ */
+
 public class InsertMemberUI extends javax.swing.JDialog {
     
     // Podíamos retornar valores para a janela mãe (Trabalho1UI), mas recebendo

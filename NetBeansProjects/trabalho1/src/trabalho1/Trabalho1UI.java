@@ -1,12 +1,11 @@
 package trabalho1;
-import java.util.HashMap;
-import java.util.Iterator;
-import java.util.Map;
-import java.util.Observer;
-import java.util.Observable;
+import java.util.*;
 import javax.swing.table.*;
 import javax.swing.*;
-import javax.swing.table.DefaultTableCellRenderer;
+
+/**
+ * Classe que representa a janela principal do programa.
+ */
 
 public class Trabalho1UI extends javax.swing.JFrame implements Observer {
     
@@ -166,6 +165,7 @@ public class Trabalho1UI extends javax.swing.JFrame implements Observer {
         insertDialog.setVisible(true);
     }//GEN-LAST:event_newMemberActionPerformed
 
+    // método que associa uma linha da tabela a um membro e que chama a classe/janela de alteração de dados de sócio
     private void memberContainerTableMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_memberContainerTableMouseClicked
         int index = memberContainerTable.getSelectedRow();
         int i = 0;
@@ -188,6 +188,8 @@ public class Trabalho1UI extends javax.swing.JFrame implements Observer {
         
     }//GEN-LAST:event_memberContainerTableMouseClicked
 
+    
+    // Chamada a método que guarda o estado atual do programa
     private void jMenuItem1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem1ActionPerformed
         
         IO io = new IO();
@@ -233,6 +235,7 @@ public class Trabalho1UI extends javax.swing.JFrame implements Observer {
         this.internalUpdate(arg);
     }
     
+    // Alinha ao centro todos os elementos da tabela
     private void alignCenter(JTable table) {
         
         DefaultTableCellRenderer centerRenderer = new DefaultTableCellRenderer();
@@ -241,6 +244,8 @@ public class Trabalho1UI extends javax.swing.JFrame implements Observer {
         
     }
     
+    
+    // Print da estrutura de dados na tabela da UI
     public void internalUpdate(Object members) {
         
         // Atualizar a listagem de membros

@@ -2,6 +2,11 @@ package trabalho1;
 import java.util.*;
 import java.io.Serializable;
 
+/**
+ * Classe que representa um qualquer Sócio;
+ * O sócio tem número, nome, curso, ano de curso, morada e cotas pagas.
+ */
+
 public class SociUM implements Serializable {
     
     //VARIAVEIS DE INSTANCIA
@@ -11,7 +16,10 @@ public class SociUM implements Serializable {
     private String course;                  //código do curso(MIEI)
     private int year;                       //2
     private String address;                 //rua da misericórdia
+    
+    //Lista com as cotas pagas
     private ArrayList<Quota> quotas;        //<data,valor pago>, ordenado por data
+    
     private Boolean monthpaid;
    
     //CONSTRUTORES

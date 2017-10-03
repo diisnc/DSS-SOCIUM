@@ -1,15 +1,11 @@
 package trabalho1;
-
-/**
-* Esta é a classe de cotas.
-*
-* @author Diana Costa, Marcos Pereira, Sérgio Oliveira, Vítor Castro
-* @version 0.1
-* @since 2017-09-25
-*/
-
 import java.util.*;
 import java.io.Serializable;
+
+/**
+* Esta é a classe de cotas. 
+* Uma cota tem uma data e um valor.
+*/
 
 public class Quota extends SociUM implements Serializable {
     

@@ -3,6 +3,10 @@ import javax.swing.ImageIcon;
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 
+/**
+ * Classe que representa a janela de alteração de membro
+ */
+
 public class ChangeMemberUI extends javax.swing.JDialog {
     private SociUM member;
     private Trabalho1 controller;
@@ -14,6 +18,7 @@ public class ChangeMemberUI extends javax.swing.JDialog {
         this.controller = controller;
         initComponents();
         
+        // print dos dados do membro nas caixas de texto
         namefield.setText(member.getName());
         numfield.setText(member.getNumber());
         coursefield.setText(member.getCourse());

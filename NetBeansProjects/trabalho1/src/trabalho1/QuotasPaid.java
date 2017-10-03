@@ -1,18 +1,12 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
-
 package trabalho1;
 import java.text.SimpleDateFormat;
 import java.util.*;
 import javax.swing.table.DefaultTableModel;
 
 /**
- *
- * @author marco
+ * Classe que representa a janela que contém a tabela com as cotas pagas pelo sócio
  */
+
 public class QuotasPaid extends javax.swing.JDialog {
 
     /** Creates new form InsertMemberUI */
