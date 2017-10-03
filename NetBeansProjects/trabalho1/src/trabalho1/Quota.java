@@ -9,9 +9,12 @@ package trabalho1;
 */
 
 import java.util.*;
-public class Quota extends SociUM{
+import java.io.Serializable;
+
+public class Quota extends SociUM implements Serializable {
     
     //VARIAVEIS DE INSTANCIA
+    private static final long serialVersionUID = 7526472295622776147L;
     private Date date;
     private Double value;  
    

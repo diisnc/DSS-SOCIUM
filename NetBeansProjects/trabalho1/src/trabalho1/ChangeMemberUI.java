@@ -1,22 +1,13 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
-
 package trabalho1;
 import javax.swing.ImageIcon;
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
-/**
- *
- * @author marco
- */
+
 public class ChangeMemberUI extends javax.swing.JDialog {
     private SociUM member;
     private Trabalho1 controller;
 
-    /** Creates new form InsertMemberUI */
+    /** Creates new form ChangeMemberUI */
     public ChangeMemberUI(java.awt.Frame parent, boolean modal, SociUM memberarg, Trabalho1 controller) {
         super(parent, modal);
         member = memberarg;

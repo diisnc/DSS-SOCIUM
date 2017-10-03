@@ -1,17 +1,6 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
-
 package trabalho1;
-
 import javax.swing.JOptionPane;
 
-/**
- *
- * @author marcos
- */
 public class InsertMemberUI extends javax.swing.JDialog {
     
     // Podíamos retornar valores para a janela mãe (Trabalho1UI), mas recebendo
@@ -28,13 +17,6 @@ public class InsertMemberUI extends javax.swing.JDialog {
         this.controller = controller;
         
         initComponents();
-        /*
-        namefield.setText(member.getName());
-        numfield.setText(member.getNumber());
-        coursefield.setText(member.getCurso());
-        yearfield.setText(Integer.toString(member.getAnoCurso()));
-        addressfield.setText(member.getMorada());
-        */
         
     }
 

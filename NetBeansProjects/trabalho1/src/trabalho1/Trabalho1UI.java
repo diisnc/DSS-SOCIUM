@@ -1,10 +1,4 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package trabalho1;
-
 import java.util.HashMap;
 import java.util.Iterator;
 import java.util.Map;
@@ -43,6 +37,7 @@ public class Trabalho1UI extends javax.swing.JFrame implements Observer {
         menuFile = new javax.swing.JMenu();
         menuNew = new javax.swing.JMenu();
         newMember = new javax.swing.JMenuItem();
+        jMenuItem1 = new javax.swing.JMenuItem();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("SociUM");
@@ -127,6 +122,14 @@ public class Trabalho1UI extends javax.swing.JFrame implements Observer {
 
         menuFile.add(menuNew);
 
+        jMenuItem1.setText("Guardar");
+        jMenuItem1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem1ActionPerformed(evt);
+            }
+        });
+        menuFile.add(jMenuItem1);
+
         jMenuBar1.add(menuFile);
 
         setJMenuBar(jMenuBar1);
@@ -174,6 +177,13 @@ public class Trabalho1UI extends javax.swing.JFrame implements Observer {
         insertDialog.setVisible(true);
         
     }//GEN-LAST:event_memberContainerTableMouseClicked
+
+    private void jMenuItem1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem1ActionPerformed
+        
+        IO io = new IO();
+        io.WriteHashMap(controller.getMembers());
+        
+    }//GEN-LAST:event_jMenuItem1ActionPerformed
 
     public void show(HashMap<String, SociUM> members) {
         /* Set the Nimbus look and feel */
@@ -243,6 +253,7 @@ public class Trabalho1UI extends javax.swing.JFrame implements Observer {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JMenuBar jMenuBar1;
+    private javax.swing.JMenuItem jMenuItem1;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTable memberContainerTable;
     private javax.swing.JMenu menuFile;

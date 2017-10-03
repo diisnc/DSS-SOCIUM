@@ -60,6 +60,8 @@ public final class Trabalho1 extends Observable {
     public static void main(String[] args) {
         
         Trabalho1 controller = new Trabalho1();
+        
+        /*
 
         ///////////// TESTING ////////////////////////
         
@@ -75,8 +77,13 @@ public final class Trabalho1 extends Observable {
         controller.createSociUM("A77730", "Sérgio Oliveira", "MIEI", 3, 2017, "Quental");
         controller.createSociUM("A77875", "Vítor Castro", "MIAI", 3, 2017, "Rua das LEPRAS");
         controller.createSociUM("A78888", "Marcos Pereira", "MIOI", 3, 2017, "Rua das 7 casas, nmr 10");
-
+        
         //////////////////////////////////////////////
+        
+        */
+        
+        IO io = new IO();
+        io.ReadHashMap(controller.getMembers());
         
         /* Iniciar a UI */
         java.awt.EventQueue.invokeLater(new Runnable() {
@@ -89,9 +96,11 @@ public final class Trabalho1 extends Observable {
                 // Subscrever a UI a atualizações do modelo notificadas por esta classe
                 controller.addObserver(ui);
                 
+                /*
                 // Socios de teste
                 controller.createSociUM("A78989", "Tarraxo", "MIMI", 3, 2017, "portela");
                 controller.createSociUM("A78990", "Infiltrado", "MIMU", 3, 2017, "UM");
+                */
             }
         });
     }
