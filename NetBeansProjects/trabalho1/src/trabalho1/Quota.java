@@ -20,13 +20,13 @@ public class Quota extends SociUM implements Serializable {
    
     //CONSTRUTORES
     public Quota(){
-    this.date = new Date();
-    this.value = 0.0;
+        this.date = new Date();
+        this.value = 0.0;
     }
     
     public Quota(Double d){
-    this.date = new Date();
-    this.value = d;
+        this.date = new Date();
+        this.value = d;
     }
     
     public Quota(Date dat, Double val){

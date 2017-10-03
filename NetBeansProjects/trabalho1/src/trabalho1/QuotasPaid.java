@@ -5,6 +5,7 @@
  */
 
 package trabalho1;
+import java.text.SimpleDateFormat;
 import java.util.*;
 import javax.swing.table.DefaultTableModel;
 
@@ -28,7 +29,7 @@ public class QuotasPaid extends javax.swing.JDialog {
         
         for(Quota q: member.getQuotas()) {
             String[] data = new String[2];
-            data[0] = q.getDate().toString();
+            data[0] = new SimpleDateFormat("MM-yyyy").format(q.getDate());
             data[1] = q.getValue().toString();
             tableModel.addRow(data);
         }

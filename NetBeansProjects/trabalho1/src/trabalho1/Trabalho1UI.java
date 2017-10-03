@@ -6,6 +6,7 @@ import java.util.Observer;
 import java.util.Observable;
 import javax.swing.table.DefaultTableModel;
 import javax.swing.*;
+import javax.swing.table.DefaultTableCellRenderer;
 
 public class Trabalho1UI extends javax.swing.JFrame implements Observer {
     
@@ -21,7 +22,7 @@ public class Trabalho1UI extends javax.swing.JFrame implements Observer {
         this.controller = controller;
         
         initComponents();
-        
+        this.setLocationRelativeTo(null);
     }
 
     /**
@@ -47,6 +48,7 @@ public class Trabalho1UI extends javax.swing.JFrame implements Observer {
 
         jScrollPane1.setName("memberContainer"); // NOI18N
 
+        memberContainerTable.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         memberContainerTable.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null},
@@ -141,11 +143,15 @@ public class Trabalho1UI extends javax.swing.JFrame implements Observer {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 340, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 529, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jScrollPane1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 286, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 350, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, Short.MAX_VALUE))
         );
 
         pack();
@@ -226,6 +232,14 @@ public class Trabalho1UI extends javax.swing.JFrame implements Observer {
         this.internalUpdate(arg);
     }
     
+    private void alignCenter(JTable table) {
+        
+        DefaultTableCellRenderer centerRenderer = new DefaultTableCellRenderer();
+        centerRenderer.setHorizontalAlignment(JLabel.CENTER);
+        table.setDefaultRenderer(String.class, centerRenderer);
+        
+    }
+    
     public void internalUpdate(Object members) {
         
         // Atualizar a listagem de membros
@@ -252,13 +266,9 @@ public class Trabalho1UI extends javax.swing.JFrame implements Observer {
         }
         
         tableModel.fireTableDataChanged();
-        
-       /* 
-        for(int x=0;x<1;x++){
-            memberContainerTable.getColumnModel().getColumn(x).setCellRenderer(tableModel);
-        }
-    */
+        alignCenter(memberContainerTable);
     }
+        
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JMenuBar jMenuBar1;

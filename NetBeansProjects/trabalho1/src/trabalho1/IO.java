@@ -12,10 +12,6 @@ import java.io.ObjectInputStream;
 import java.io.IOException;
 import java.io.FileNotFoundException;
 
-/**
- *
- * @author sergi
- */
 public class IO {
     
     public void WriteHashMap(HashMap<String, SociUM> l) {

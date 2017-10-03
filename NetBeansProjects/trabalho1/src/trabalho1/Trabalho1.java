@@ -20,7 +20,8 @@ public final class Trabalho1 extends Observable {
     public HashMap<String, SociUM> getMembers() {
         return this.members;
     }
-
+    
+    
     public SociUM createSociUM(String numero, String nome, String curso, int anocurso, int anopresente, String morada) {
 
         SociUM newSociUM = new SociUM(numero, nome, curso, anocurso, anopresente, morada);
