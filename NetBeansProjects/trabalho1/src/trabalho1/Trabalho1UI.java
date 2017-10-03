@@ -5,6 +5,7 @@ import java.util.Map;
 import java.util.Observer;
 import java.util.Observable;
 import javax.swing.table.DefaultTableModel;
+import javax.swing.*;
 
 public class Trabalho1UI extends javax.swing.JFrame implements Observer {
     
@@ -20,6 +21,7 @@ public class Trabalho1UI extends javax.swing.JFrame implements Observer {
         this.controller = controller;
         
         initComponents();
+        
     }
 
     /**
@@ -41,6 +43,7 @@ public class Trabalho1UI extends javax.swing.JFrame implements Observer {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("SociUM");
+        setResizable(false);
 
         jScrollPane1.setName("memberContainer"); // NOI18N
 
@@ -138,11 +141,11 @@ public class Trabalho1UI extends javax.swing.JFrame implements Observer {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 400, Short.MAX_VALUE)
+            .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 340, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 286, Short.MAX_VALUE)
+            .addComponent(jScrollPane1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 286, Short.MAX_VALUE)
         );
 
         pack();
@@ -249,6 +252,12 @@ public class Trabalho1UI extends javax.swing.JFrame implements Observer {
         }
         
         tableModel.fireTableDataChanged();
+        
+       /* 
+        for(int x=0;x<1;x++){
+            memberContainerTable.getColumnModel().getColumn(x).setCellRenderer(tableModel);
+        }
+    */
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

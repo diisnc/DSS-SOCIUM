@@ -52,6 +52,7 @@ public class QuotasPaid extends javax.swing.JDialog {
         setBackground(new java.awt.Color(204, 0, 0));
         setModal(true);
         setName("insertMember"); // NOI18N
+        setResizable(false);
 
         jScrollPane1.setName("memberContainer"); // NOI18N
 
@@ -118,7 +119,9 @@ public class QuotasPaid extends javax.swing.JDialog {
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 300, Short.MAX_VALUE)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addGap(0, 0, Short.MAX_VALUE)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 246, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
 
         pack();

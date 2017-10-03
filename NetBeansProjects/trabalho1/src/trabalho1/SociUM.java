@@ -12,7 +12,7 @@ public class SociUM implements Serializable {
     private int anoCurso;                   //2
     private int anoPresente;                //2017
     private String morada;                  //rua da misericórdia
-    private ArrayList<Quota> quotas;                 //<data,valor pago>, ordenado por data
+    private ArrayList<Quota> quotas;        //<data,valor pago>, ordenado por data
    
     //CONSTRUTORES
     public SociUM(){
